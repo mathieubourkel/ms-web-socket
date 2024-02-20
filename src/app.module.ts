@@ -2,9 +2,11 @@ import { Module } from '@nestjs/common';
 import { ServeStaticModule } from '@nestjs/serve-static';
 import { join } from 'path';
 import { NotifModule } from './notif/notif.module';
+import { ConfigModule } from '@nestjs/config';
 
 @Module({
   imports: [
+    ConfigModule.forRoot({isGlobal: true}),
     NotifModule,
     ServeStaticModule.forRoot({
       rootPath: join(__dirname, '..', '..', '..', 'dist', 'client'),
