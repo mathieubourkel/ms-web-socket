@@ -1,18 +1,19 @@
 export interface ServerToClientEvents {
-    notif: (e: Message) => void;
+    notif: (e: string) => void;
   }
   
   export interface ClientToServerEvents {
-    notif: (e: Message) => void;
+    notif: (e: string) => void;
   }
 
-  export interface User {
-    userId: string;
-    userName: string;
-  }
-  
-  export interface Message {
-    user: User;
-    timeSent: string;
-    message: string;
-  }
+export interface Message {
+  message: string,
+  users: string | string[]
+}
+
+export interface MessageForMany {
+  message:string,
+  users: Users
+}
+
+export type Users = string[]

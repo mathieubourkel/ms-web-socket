@@ -1,6 +1,4 @@
-import { Module } from '@nestjs/common';
-import { ServeStaticModule } from '@nestjs/serve-static';
-import { join } from 'path';
+import { Module} from '@nestjs/common';
 import { NotifModule } from './notif/notif.module';
 import { ConfigModule } from '@nestjs/config';
 
@@ -8,9 +6,6 @@ import { ConfigModule } from '@nestjs/config';
   imports: [
     ConfigModule.forRoot({isGlobal: true}),
     NotifModule,
-    ServeStaticModule.forRoot({
-      rootPath: join(__dirname, '..', '..', '..', 'dist', 'client'),
-    }),
   ],
 })
 export class AppModule {}
