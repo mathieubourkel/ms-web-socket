@@ -27,7 +27,6 @@ export class NotifGateway {
 
   @SubscribeMessage('notifFromClient')
   handleNotif(@MessageBody() payload:Message): void {
-    console.log(payload)
     this.logger.log(payload);
     this.server.to(payload.users).emit('notifToClient', payload.message)
   }
